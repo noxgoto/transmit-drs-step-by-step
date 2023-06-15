@@ -10,9 +10,9 @@
     <script src="https://platform-websdk.transmitsecurity.io/platform-websdk/latest/ts-platform-websdk.js" defer="true" id="ts-platform-script"></script> 
     <script>
       document.getElementById("ts-platform-script").addEventListener("load", function() {
-        window.tsPlatform.initialize({ clientId: "upp186mnybr9tkajvysis28lhy5l420i" });
+        window.tsPlatform.initialize({ clientId: "<your client id>" });
       });
-    </script>    
+    </script>
     
     <!-- Step2: Report Action #1-->
     <script>
@@ -32,7 +32,12 @@
     </script>
     
     <!-- Step6: Clear User -->
-
+    <script>
+      async function clearUser() {
+        window.tsPlatform.drs.clearUser();
+      }
+    </script>
+    
   <body>
     <section class="wrapper">
     <div class="container">
@@ -59,8 +64,26 @@
             <hr>
       
             <!-- Step5: Report Action #3 -->
+            <p>
+              <button class="btn" onclick="reportAction('transaction')">transaction</button>
+              <button class="btn" onclick="reportAction('checkout')">checkout</button>
+              <button class="btn" onclick="reportAction('password_reset')">password_reset</button>
+            </p>
+            <p>
+              <button class="btn" onclick="reportAction('logout')">logout</button>
+              <button class="btn" onclick="reportAction('account_details_change')">account_details_change</button>
+              <button class="btn" onclick="reportAction('account_auth_change')">account_auth_change</button>
+            </p>
+            <p>
+              <button class="btn" onclick="reportAction('withdraw')">withdraw</button>
+              <button class="btn" onclick="reportAction('credits_change')">credits_change</button>
+            </p>
+            <hr>
       
             <!-- Step6: Clear User -->
+            <p>
+              <button class="btn" onclick="clearUser()">clear_user</button>
+            </p>
       
         </div>
     </div>
